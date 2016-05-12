@@ -18,23 +18,31 @@ namespace GameOfLife
         bool[,] updatearr;
         int neighbors;
 
+        Color rectcolor1 = new Color();
+        
+
+
         public Form1()
         {
             InitializeComponent();
             timer.Interval = 20;
             timer.Tick += Timer_Tick;
-            xAmount = 20;
-            yAmount = 20;
+            xAmount = 50;
+            yAmount = 50;
             cellarr = new bool[xAmount, yAmount];
             updatearr = new bool[xAmount, yAmount];
             generations = 0;
             genLabelstatus.Text = "Generations: " + generations.ToString();
+
+            rectcolor1 = Color.Gray;
         }
 
         private void graphicsPanel1_Paint(object sender, PaintEventArgs e)
         {
-            float width = (float)graphicsPanel1.ClientSize.Width / cellarr.GetLength(0);
-            float hieght = (float)graphicsPanel1.ClientSize.Height / cellarr.GetLength(1);
+            float width = ((float)graphicsPanel1.ClientSize.Width / (float)cellarr.GetLength(0));
+            float height = ((float)graphicsPanel1.ClientSize.Height / (float)cellarr.GetLength(1));
+
+            Pen pen1 = new Pen(rectcolor1, .01f);
 
             updatearr = new bool[xAmount, yAmount];
 
@@ -45,9 +53,9 @@ namespace GameOfLife
                     neighbors = 0;
                     RectangleF rect = RectangleF.Empty;
                     rect.X = x * width;
-                    rect.Y = y * hieght;
+                    rect.Y = y * height;
                     rect.Width = width;
-                    rect.Height = hieght;
+                    rect.Height = height;
 
                     if (cellarr[x, y])
                     {
@@ -111,15 +119,15 @@ namespace GameOfLife
                         //else
                         //{ intarr[x, y] -= 1; }
                     }
-                    e.Graphics.DrawRectangle(Pens.Black, rect.X, rect.Y, rect.Width, rect.Height);
+                    e.Graphics.DrawRectangle(pen1, rect.X, rect.Y, rect.Width, rect.Height);
                 }
             }
         }
 
         private void graphicsPanel1_MouseClick(object sender, MouseEventArgs e)
         {
-            float width = graphicsPanel1.ClientSize.Width / cellarr.GetLength(0);
-            float height = graphicsPanel1.ClientSize.Height / cellarr.GetLength(1);
+            float width = ((float)graphicsPanel1.ClientSize.Width / (float)cellarr.GetLength(0));
+            float height = ((float)graphicsPanel1.ClientSize.Height / (float)cellarr.GetLength(1));
 
             if (e.Button == MouseButtons.Left)
             {
