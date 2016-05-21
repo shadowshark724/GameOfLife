@@ -123,6 +123,7 @@
             this.yAxis.Name = "yAxis";
             this.yAxis.Size = new System.Drawing.Size(120, 22);
             this.yAxis.TabIndex = 2;
+            this.yAxis.ValueChanged += new System.EventHandler(this.yAxis_ValueChanged);
             // 
             // xAxisUD
             // 
@@ -130,6 +131,7 @@
             this.xAxisUD.Name = "xAxisUD";
             this.xAxisUD.Size = new System.Drawing.Size(120, 22);
             this.xAxisUD.TabIndex = 1;
+            this.xAxisUD.ValueChanged += new System.EventHandler(this.xAxisUD_ValueChanged);
             // 
             // secondsUD
             // 
@@ -137,6 +139,7 @@
             this.secondsUD.Name = "secondsUD";
             this.secondsUD.Size = new System.Drawing.Size(120, 22);
             this.secondsUD.TabIndex = 0;
+            this.secondsUD.ValueChanged += new System.EventHandler(this.secondsUD_ValueChanged);
             // 
             // viewTab
             // 

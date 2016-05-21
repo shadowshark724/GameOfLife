@@ -59,9 +59,21 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.genLabelstatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.cellLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.cutToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.graphicsPanel1 = new GameOfLife.GraphicsPanel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -265,12 +277,14 @@
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
             this.resetToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
             this.resetToolStripMenuItem.Text = "Reset";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
             // 
             // reloadToolStripMenuItem
             // 
             this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
             this.reloadToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
             this.reloadToolStripMenuItem.Text = "Reload";
+            this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -296,13 +310,115 @@
             this.cellLabel.Size = new System.Drawing.Size(95, 20);
             this.cellLabel.Text = "Cell\'s Alive: 0";
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripButton,
+            this.openToolStripButton,
+            this.saveToolStripButton,
+            this.printToolStripButton,
+            this.toolStripSeparator4,
+            this.cutToolStripButton,
+            this.copyToolStripButton,
+            this.pasteToolStripButton,
+            this.toolStripSeparator5,
+            this.helpToolStripButton});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(793, 27);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // newToolStripButton
+            // 
+            this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
+            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newToolStripButton.Name = "newToolStripButton";
+            this.newToolStripButton.Size = new System.Drawing.Size(24, 24);
+            this.newToolStripButton.Text = "&New";
+            // 
+            // openToolStripButton
+            // 
+            this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
+            this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openToolStripButton.Name = "openToolStripButton";
+            this.openToolStripButton.Size = new System.Drawing.Size(24, 24);
+            this.openToolStripButton.Text = "&Open";
+            // 
+            // saveToolStripButton
+            // 
+            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
+            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveToolStripButton.Name = "saveToolStripButton";
+            this.saveToolStripButton.Size = new System.Drawing.Size(24, 24);
+            this.saveToolStripButton.Text = "&Save";
+            // 
+            // printToolStripButton
+            // 
+            this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
+            this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.printToolStripButton.Name = "printToolStripButton";
+            this.printToolStripButton.Size = new System.Drawing.Size(24, 24);
+            this.printToolStripButton.Text = "&Print";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
+            // 
+            // cutToolStripButton
+            // 
+            this.cutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cutToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripButton.Image")));
+            this.cutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cutToolStripButton.Name = "cutToolStripButton";
+            this.cutToolStripButton.Size = new System.Drawing.Size(24, 24);
+            this.cutToolStripButton.Text = "C&ut";
+            // 
+            // copyToolStripButton
+            // 
+            this.copyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.copyToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripButton.Image")));
+            this.copyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.copyToolStripButton.Name = "copyToolStripButton";
+            this.copyToolStripButton.Size = new System.Drawing.Size(24, 24);
+            this.copyToolStripButton.Text = "&Copy";
+            // 
+            // pasteToolStripButton
+            // 
+            this.pasteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pasteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripButton.Image")));
+            this.pasteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.pasteToolStripButton.Name = "pasteToolStripButton";
+            this.pasteToolStripButton.Size = new System.Drawing.Size(24, 24);
+            this.pasteToolStripButton.Text = "&Paste";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
+            // 
+            // helpToolStripButton
+            // 
+            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
+            this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.helpToolStripButton.Name = "helpToolStripButton";
+            this.helpToolStripButton.Size = new System.Drawing.Size(24, 24);
+            this.helpToolStripButton.Text = "He&lp";
+            // 
             // graphicsPanel1
             // 
             this.graphicsPanel1.BackColor = System.Drawing.SystemColors.Window;
-            this.graphicsPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graphicsPanel1.Location = new System.Drawing.Point(0, 28);
+            this.graphicsPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.graphicsPanel1.Location = new System.Drawing.Point(0, 58);
             this.graphicsPanel1.Name = "graphicsPanel1";
-            this.graphicsPanel1.Size = new System.Drawing.Size(793, 463);
+            this.graphicsPanel1.Size = new System.Drawing.Size(793, 433);
             this.graphicsPanel1.TabIndex = 2;
             this.graphicsPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.graphicsPanel1_Paint);
             this.graphicsPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.graphicsPanel1_MouseClick);
@@ -312,6 +428,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 516);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.graphicsPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -323,6 +440,8 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,6 +480,17 @@
         private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel cellLabel;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton newToolStripButton;
+        private System.Windows.Forms.ToolStripButton openToolStripButton;
+        private System.Windows.Forms.ToolStripButton saveToolStripButton;
+        private System.Windows.Forms.ToolStripButton printToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton cutToolStripButton;
+        private System.Windows.Forms.ToolStripButton copyToolStripButton;
+        private System.Windows.Forms.ToolStripButton pasteToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripButton helpToolStripButton;
     }
 }
 

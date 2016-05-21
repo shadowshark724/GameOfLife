@@ -98,5 +98,20 @@ namespace GameOfLife
             Settings.Default.xAmount = (int)xAxisUD.Value;
             Settings.Default.yAmount = (int)yAxis.Value;
         }
+
+        private void secondsUD_ValueChanged(object sender, EventArgs e)
+        {
+            Settings.Default.timerinterval = (int)secondsUD.Value;
+        }
+
+        private void xAxisUD_ValueChanged(object sender, EventArgs e)
+        {
+            Settings.Default.xAmount = (int)xAxisUD.Value;
+        }
+
+        private void yAxis_ValueChanged(object sender, EventArgs e)
+        {
+            Settings.Default.yAmount = (int)yAxis.Value;
+        }
     }
 }

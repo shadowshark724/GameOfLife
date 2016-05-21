@@ -59,7 +59,8 @@ namespace GameOfLife
             Pen pen1 = new Pen(rectcolor1, .01f);
             Pen pen2 = new Pen(linex10, 2.0f);
 
-            updatearr = new bool[Settings.Default.xAmount, Settings.Default.yAmount];
+            
+            updatearr = new bool[xcnt, ycnt];
 
             cellcount = 0;
 
@@ -165,9 +166,9 @@ namespace GameOfLife
                 float clickX = (e.X / width);
                 float clickY = (e.Y / height);
 
-                if (clickX >= Settings.Default.xAmount)
+                if (clickX >= xcnt)
                     clickX -= 1;
-                if (clickY >= Settings.Default.yAmount)
+                if (clickY >= ycnt)
                     clickY -= 1;
 
                 cellarr[(int)clickX, (int)clickY] = !cellarr[(int)clickX, (int)clickY];
@@ -211,17 +212,17 @@ namespace GameOfLife
                     { neighbors += 1; }
                     if (x > 0 && cellarr[x - 1, y])
                     { neighbors += 1; }
-                    if (x > 0 && y < Settings.Default.yAmount - 1 && cellarr[x - 1, y + 1])
+                    if (x > 0 && y < ycnt - 1 && cellarr[x - 1, y + 1])
                     { neighbors += 1; }
                     if (y > 0 && cellarr[x, y - 1])
                     { neighbors += 1; }
-                    if (y < Settings.Default.yAmount - 1 && cellarr[x, y + 1])
+                    if (y < ycnt - 1 && cellarr[x, y + 1])
                     { neighbors += 1; }
-                    if (x < Settings.Default.xAmount - 1 && y > 0 && cellarr[x + 1, y - 1])
+                    if (x < xcnt - 1 && y > 0 && cellarr[x + 1, y - 1])
                     { neighbors += 1; }
-                    if (x < Settings.Default.xAmount - 1 && cellarr[x + 1, y])
+                    if (x < xcnt - 1 && cellarr[x + 1, y])
                     { neighbors += 1; }
-                    if (x < Settings.Default.xAmount - 1 && y < Settings.Default.yAmount - 1 && cellarr[x + 1, y + 1])
+                    if (x < xcnt - 1 && y < ycnt - 1 && cellarr[x + 1, y + 1])
                     { neighbors += 1; }
 
                     if (neighbors < 2)
@@ -260,6 +261,46 @@ namespace GameOfLife
             graphicsPanel1.Invalidate();
         }
 
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Settings.Default.Reset();
+            linex10 = Settings.Default.Grid_10_C;
+            rectcolor1 = Settings.Default.Grid_C;
+            graphicsPanel1.BackColor = Settings.Default.PanelColor;
+            cellclr = Settings.Default.CellColor;
+            timerint = Settings.Default.timerinterval;
+            xcnt = Settings.Default.xAmount;
+            ycnt = Settings.Default.yAmount;
+
+            cellarr = new bool[xcnt, ycnt];
+
+            graphicsPanel1.Invalidate();
+
+            //Settings.Default.Grid_10_C = linex10;
+            //Settings.Default.Grid_C = rectcolor1;
+            //Settings.Default.PanelColor = graphicsPanel1.BackColor;
+            //Settings.Default.CellColor = cellclr;
+            //Settings.Default.timerinterval = timerint;
+            //Settings.Default.xAmount = xcnt;
+            //Settings.Default.yAmount = ycnt;
+        }
+
+        private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Settings.Default.Reload();
+            linex10 = Settings.Default.Grid_10_C;
+            rectcolor1 = Settings.Default.Grid_C;
+            graphicsPanel1.BackColor = Settings.Default.PanelColor;
+            cellclr = Settings.Default.CellColor;
+            timerint = Settings.Default.timerinterval;
+            xcnt = Settings.Default.xAmount;
+            ycnt = Settings.Default.yAmount;
+
+            cellarr = new bool[xcnt, ycnt];
+
+            graphicsPanel1.Invalidate();
+        }
+
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Options ops = new Options();
@@ -269,8 +310,16 @@ namespace GameOfLife
             if (DialogResult.OK == ops.ShowDialog())
             {
                 graphicsPanel1.BackColor = ops.BackColor;
-                
+                linex10 = Settings.Default.Grid_10_C;
+                rectcolor1 = Settings.Default.Grid_C;
+                graphicsPanel1.BackColor = Settings.Default.PanelColor;
+                cellclr = Settings.Default.CellColor;
+                timerint = Settings.Default.timerinterval;
+                xcnt = Settings.Default.xAmount;
+                ycnt = Settings.Default.yAmount;
 
+
+                cellarr = new bool[xcnt, ycnt];
             }
         }
 
@@ -298,17 +347,17 @@ namespace GameOfLife
                         { neighbors += 1; }
                         if (x > 0 && cellarr[x - 1, y])
                         { neighbors += 1; }
-                        if (x > 0 && y < Settings.Default.yAmount -1 && cellarr[x - 1, y + 1])
+                        if (x > 0 && y < ycnt -1 && cellarr[x - 1, y + 1])
                         { neighbors += 1; }
                         if ( y > 0 && cellarr[x, y - 1])
                         { neighbors += 1; }
-                        if ( y < Settings.Default.yAmount -1 && cellarr[x, y + 1])
+                        if ( y < ycnt -1 && cellarr[x, y + 1])
                         { neighbors += 1; }
-                        if (x < Settings.Default.xAmount -1 && y > 0 && cellarr[x + 1, y - 1])
+                        if (x < xcnt - 1 && y > 0 && cellarr[x + 1, y - 1])
                         { neighbors += 1; }
-                        if (x < Settings.Default.xAmount -1 && cellarr[x + 1, y])
+                        if (x < xcnt - 1 && cellarr[x + 1, y])
                         { neighbors += 1; }
-                        if ( x < Settings.Default.xAmount - 1 && y < Settings.Default.yAmount -1 && cellarr[x + 1, y + 1])
+                        if ( x < xcnt - 1 && y < ycnt -1 && cellarr[x + 1, y + 1])
                         { neighbors += 1; }
 
                         if (neighbors < 2)
@@ -347,6 +396,7 @@ namespace GameOfLife
             Settings.Default.timerinterval = timerint;
             Settings.Default.xAmount = xcnt;
             Settings.Default.yAmount = ycnt;
+            Settings.Default.Save();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
