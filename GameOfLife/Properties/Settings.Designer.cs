@@ -8,22 +8,102 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameOfLife.Properties
-{
-
-
+namespace GameOfLife.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int xAmount {
+            get {
+                return ((int)(this["xAmount"]));
+            }
+            set {
+                this["xAmount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int yAmount {
+            get {
+                return ((int)(this["yAmount"]));
+            }
+            set {
+                this["yAmount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color Grid_10_C {
+            get {
+                return ((global::System.Drawing.Color)(this["Grid_10_C"]));
+            }
+            set {
+                this["Grid_10_C"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Silver")]
+        public global::System.Drawing.Color Grid_C {
+            get {
+                return ((global::System.Drawing.Color)(this["Grid_C"]));
+            }
+            set {
+                this["Grid_C"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        public global::System.Drawing.Color PanelColor {
+            get {
+                return ((global::System.Drawing.Color)(this["PanelColor"]));
+            }
+            set {
+                this["PanelColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("64, 64, 64")]
+        public global::System.Drawing.Color CellColor {
+            get {
+                return ((global::System.Drawing.Color)(this["CellColor"]));
+            }
+            set {
+                this["CellColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public int timerinterval {
+            get {
+                return ((int)(this["timerinterval"]));
+            }
+            set {
+                this["timerinterval"] = value;
             }
         }
     }
